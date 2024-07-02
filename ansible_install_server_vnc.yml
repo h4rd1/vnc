@@ -1,0 +1,19 @@
+---
+- name: Установка и включение tigervnc-server
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Установка tigervnc-server
+      yum:
+        name: tigervnc-server
+        state: present
+
+    - name: Включение tigervnc-server
+      service:
+        name: vncserver
+        enabled: yes
+        state: started
+
+
+...
